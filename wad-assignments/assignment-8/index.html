@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meridian Travels – Book Your Trip</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="#home" class="logo">Meridian<span>Travels</span></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#prices">Prices</a></li>
+        <li><a href="#booking">Book Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Discover India, one journey at a time</h1>
+    <p>Handpicked trips from Goa to Ladakh, with fair prices and no hidden fees.</p>
+    <a href="#booking" class="btn">Book your trip</a>
+  </section>
+
+  <section id="packages" class="section">
+    <h2>Popular packages</h2>
+    <div class="cards">
+      <article class="card"><h3>Goa Beach Escape</h3><p>4 nights by the sea with breakfast included.</p><span class="price">₹18,500</span></article>
+      <article class="card"><h3>Kerala Backwaters</h3><p>3 nights on a houseboat plus Munnar tea trails.</p><span class="price">₹24,000</span></article>
+      <article class="card"><h3>Ladakh Adventure</h3><p>6 days of monasteries, lakes and mountain passes.</p><span class="price">₹39,900</span></article>
+    </div>
+  </section>
+
+  <section id="prices" class="section alt">
+    <h2>Price comparison</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Destination</th><th>Duration</th><th>Hotel</th><th>Transport</th><th>Meals</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td>Goa</td><td>5 days</td><td>3-star resort</td><td>Flight</td><td>Breakfast</td><td>₹18,500</td></tr>
+          <tr><td>Kerala</td><td>4 days</td><td>Houseboat</td><td>Train</td><td>Half board</td><td>₹24,000</td></tr>
+          <tr><td>Ladakh</td><td>7 days</td><td>Guesthouse</td><td>Flight</td><td>Full board</td><td>₹39,900</td></tr>
+          <tr><td>Jaipur</td><td>3 days</td><td>Heritage hotel</td><td>Car</td><td>Breakfast</td><td>₹14,200</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="booking" class="section">
+    <h2>Book your trip</h2>
+    <div class="booking-layout">
+      <form id="bookingForm" class="form" novalidate>
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name">
+        <span class="error" id="nameError"></span>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+        <span class="error" id="emailError"></span>
+
+        <label for="phone">Phone (10 digits)</label>
+        <input type="tel" id="phone" name="phone">
+        <span class="error" id="phoneError"></span>
+
+        <label for="destination">Destination</label>
+        <select id="destination" name="destination">
+          <option value="">Select a destination</option>
+          <option value="18500">Goa – ₹18,500</option>
+          <option value="24000">Kerala – ₹24,000</option>
+          <option value="39900">Ladakh – ₹39,900</option>
+          <option value="14200">Jaipur – ₹14,200</option>
+        </select>
+        <span class="error" id="destinationError"></span>
+
+        <label for="date">Travel date</label>
+        <input type="date" id="date" name="date">
+        <span class="error" id="dateError"></span>
+
+        <label for="travellers">Travellers</label>
+        <input type="number" id="travellers" name="travellers" min="1" max="10" value="1">
+        <span class="error" id="travellersError"></span>
+
+        <button type="submit" class="btn">Confirm booking</button>
+        <p class="success" id="successMsg" hidden>Booking confirmed! Check your email for details.</p>
+      </form>
+
+      <aside class="summary" aria-live="polite">
+        <h3>Booking summary</h3>
+        <dl>
+          <dt>Destination</dt><dd id="sumDest">–</dd>
+          <dt>Travellers</dt><dd id="sumTrav">1</dd>
+          <dt>Date</dt><dd id="sumDate">–</dd>
+          <dt>Total</dt><dd id="sumTotal" class="total">₹0</dd>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Meridian Travels · Bengaluru, India</p>
+    <ul class="footer-links"><li><a href="#home">Home</a></li><li><a href="#packages">Packages</a></li><li><a href="#booking">Book</a></li></ul>
+  </footer>
+
+</body>
+</html>

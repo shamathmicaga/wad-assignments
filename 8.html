@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Match Schedule</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            background: #101b18;
+            color: #edf5ef;
+        }
+
+        header {
+            background: linear-gradient(135deg, #123d2b, #08734f);
+            color: #fff8df;
+            text-align: center;
+            padding: 58px 20px;
+            margin-bottom: 38px;
+            border-bottom: 5px solid #d6ad55;
+        }
+
+        header h1 {
+            margin-top: 0;
+            font-size: 2.3rem;
+            letter-spacing: 1px;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: #1b2b25;
+            padding: 30px;
+            margin-bottom: 32px;
+            border: 1px solid #355344;
+            border-left: 5px solid #d6ad55;
+            border-radius: 16px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+        }
+
+        section h2 {
+            color: #f0d28a;
+            margin-top: 0;
+        }
+
+        section li {
+            margin: 9px 0;
+            color: #d8e6dc;
+        }
+
+        .filter-form-class {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        select, button {
+            padding: 11px 18px;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        select {
+            border: 1px solid #b68d3e;
+            background: #f7f1df;
+            color: #20372b;
+        }
+
+        .reset-btn {
+            background: #d6ad55;
+            color: #17251d;
+            cursor: pointer;
+            border: 1px solid #e8c978;
+            font-weight: bold;
+        }
+
+        .reset-btn:hover {
+            background: #f0cc78;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 22px;
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 650px;
+            border-collapse: collapse;
+            background: #20372d;
+        }
+
+        th, td {
+            padding: 15px 16px;
+            text-align: center;
+            border: 1px solid #466253;
+            white-space: nowrap;
+        }
+
+        th {
+            background: #0d6546;
+            color: #fff4d6;
+            font-weight: bold;
+        }
+
+        td {
+            color: #e4eee7;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #294438;
+        }
+
+        tbody tr:hover {
+            background: #355744;
+        }
+
+        td a {
+            text-decoration: none;
+        }
+
+        footer {
+            background: #09291e;
+            color: #e9d49c;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 45px;
+            border-top: 3px solid #d6ad55;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 38px 15px;
+                margin-bottom: 22px;
+            }
+
+            section {
+                padding: 22px 16px;
+            }
+
+            .filter-form-class {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-form-class select,
+            .filter-form-class button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.65rem;
+            }
+
+            main {
+                padding: 0 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🏏 IPL Match Schedule</h1>
+        <p>Find your Match and book your tickets!</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Ticket Booking Information</h2>
+            <ul>
+                <li>Select your favourite team.</li>
+                <li>Check the match date, time and venue.</li>
+                <li>Compare the available tickets and prices.</li>
+                <li>Click Book to view your selected tickets.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Find a Match</h2>
+
+            <form class="filter-form-class" id="filterForm">
+
+                <label for="teamfilter">Filter by Name</label>
+
+                <select id="teamfilter" name="team">
+                    <option value="">All Teams</option>
+                    <option value="CSK">Chennai Super Kings</option>
+                    <option value="MI">Mumbai Indians</option>
+                    <option value="RCB">Royal Challengers Bangalore</option>
+                    <option value="KKR">Kolkata Knight Riders</option>
+                </select>
+
+                <button type="submit" class="reset-btn">Apply Filter</button>
+                <button type="button" class="reset-btn" id="showAllBtn">Show All</button>
+                <button type="reset" class="reset-btn" id="resetBtn">Reset</button>
+
+                <div id="error-message"
+                    style="color:#ff7777; display:none; width:100%; font-weight:bold;">
+                    ⚠️ Please select a team to apply the filter.
+                </div>
+
+            </form>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Match</th>
+                            <th>Date &amp; Time</th>
+                            <th>Venue</th>
+                            <th>Starting Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>CSK vs RCB</td>
+                            <td>March 28, 7:30 PM</td>
+                            <td>M. A. Chidambaram Stadium, Chennai</td>
+                            <td>₹1,500</td>
+                            <td>
+                                <a href="Booking.html?teams=CSK%20vs%20RCB&amp;date=March%2028%2C%207%3A30%20PM&amp;venue=M.%20A.%20Chidambaram%20Stadium%2C%20Chennai&amp;price=1500">
+                                    <button type="button" class="reset-btn">Book</button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>MI vs KKR</td>
+                            <td>March 29, 7:30 PM</td>
+                            <td>Wankhede Stadium, Mumbai</td>
+                            <td>₹1,200</td>
+                            <td>
+                                <a href="Booking.html?teams=MI%20vs%20KKR&amp;date=March%2029%2C%207%3A30%20PM&amp;venue=Wankhede%20Stadium%2C%20Mumbai&amp;price=1200">
+                                    <button type="button" class="reset-btn">Book</button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>RCB vs MI</td>
+                            <td>April 02, 7:30 PM</td>
+                            <td>M. Chinnaswamy Stadium, Bengaluru</td>
+                            <td>₹1,800</td>
+                            <td>
+                                <a href="Booking.html?teams=RCB%20vs%20MI&amp;date=April%2002%2C%207%3A30%20PM&amp;venue=M.%20Chinnaswamy%20Stadium%2C%20Bengaluru&amp;price=1800">
+                                    <button type="button" class="reset-btn">Book</button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>KKR vs CSK</td>
+                            <td>April 05, 3:30 PM</td>
+                            <td>Eden Gardens, Kolkata</td>
+                            <td>₹1,000</td>
+                            <td>
+                                <a href="Booking.html?teams=KKR%20vs%20CSK&amp;date=April%2005%2C%203%3A30%20PM&amp;venue=Eden%20Gardens%2C%20Kolkata&amp;price=1000">
+                                    <button type="button" class="reset-btn">Book</button>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 IPL Match Booking. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const filterForm = document.getElementById('filterForm');
+        const teamFilter = document.getElementById('teamfilter');
+        const errorMessage = document.getElementById('error-message');
+        const resetBtn = document.getElementById('resetBtn');
+        const showAllBtn = document.getElementById('showAllBtn');
+
+        filterForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            if (teamFilter.value === "") {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+                alert('Filter successfully applied for: ' + teamFilter.value);
+            }
+        });
+
+        resetBtn.addEventListener('click', function() {
+            errorMessage.style.display = 'none';
+        });
+
+        showAllBtn.addEventListener('click', function() {
+            teamFilter.value = "";
+            errorMessage.style.display = 'none';
+            alert('Showing all matches!');
+        });
+    </script>
+
+</body>
+</html>

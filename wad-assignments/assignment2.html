@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>HTML Tags Demonstration</title></head>
+<body>
+<h5>HTML Listing:</h5>
+<p>These tags are used to build lists in HTML. They organize related items into either bulleted or numbered structures, which makes content highly readable and accessible.</p>
+<ul>
+  <li>Unordered List (ul): Creates a bulleted list.</li>
+  <li>Ordered List (ol): Creates a numbered list.</li>
+  <li>List Item (li): Represents an individual item within a list.</li>
+</ul>
+<ol>
+  <li>First item in the ordered list</li>
+  <li>Second item in the ordered list</li>
+  <li>Third item in the ordered list</li>
+</ol>
+<h5>Modern tags / Equivalents (Semantic Wrappers) for ul, ol, li are semantic layout containers that you must wrap around your lists to give them structural meaning to search engines and screen readers.</h5>
+<p>These semantic tags are</p>
+<ol>
+  <li>nav: Represents a section of navigation links.</li>
+  <li>section: Defines a thematic grouping of content, often with a heading.</li>
+  <li>article: Represents a self-contained piece of content that could be distributed independently.</li>
+  <li>aside: Contains content that is tangentially related to the main content, like sidebars or callouts.</li>
+  <li>header: Represents introductory content or navigational aids for its nearest ancestor sectioning content.</li>
+  <li>footer: Represents the footer for its nearest ancestor sectioning content, often containing metadata or related links.</li>
+</ol>
+<h5>If your list consists of website links to navigate your site, wrap it in a &lt;nav&gt; block.</h5>
+<nav>
+  <ul>
+    <li><a href="#table">Table</a></li>
+    <li><a href="#lists">Lists</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#anchor">Anchor tags and image tags</a></li>
+    <li><a href="#hero">Banner/Hero section</a></li>
+  </ul>
+</nav>
+<h5>If your list features related <mark>links, ads, or secondary information</mark> next to an article, use &lt;aside&gt;.</h5>
+<aside>
+  <h4>Recommended Reading</h4>
+  <ul>
+    <li>Understanding CSS Flexbox</li>
+    <li>A Guide to HTML5 Layouts</li>
+  </ul>
+</aside>
+<h5>If your list forms a distinct chapter of a page or part of a standalone blog post, place it inside a &lt;section&gt; or &lt;article&gt;.</h5>
+<article>
+  <h3>Top 3 Travel Tips</h3>
+  <ol>
+    <li>Pack light.</li>
+    <li>Book flights early.</li>
+    <li>Learn basic local phrases.</li>
+  </ol>
+</article>
+</body>
+</html>
